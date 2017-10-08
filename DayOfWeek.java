@@ -1,18 +1,29 @@
-import java.util.Scanner;  
-class DayOfWeek
-{  
- public static void main(String arg[])
- { 
-	int m,d,y;
-	m = Integer.parseInt(arg[0]);
-	d = Integer.parseInt(arg[1]);
-	y = Integer.parseInt(arg[1]);
-	int y0 = y - (14 - m) / 12;
-    int x = y0 + y0/4 - y0/100 + y0/400;
-    int m0 = m + 12 * ((14 - m) / 12) - 2;
-    int d0 = (d + x + (31*m0)/12) % 7;
-
-        System.out.println(d0);
-	
- }
+public class DayOfWeek{
+    public static void main(String[] args){
+        int date = Integer.parseInt(args[0]);
+        int month = Integer.parseInt(args[1]);
+        int year = Integer.parseInt(args[2]);
+	int d0,m0,y0,x;
+        y0 = year-(14-month)/12;
+        x = y0+y0/4-y0/100+y0/400;
+        m0 = month+12*((14-month)/12)-2;
+        d0 = (date+x+31*m0/12)%7;
+        switch(d0)
+        {
+            case 0 :System.out.println("It's Sunday");
+                break;
+            case 1 :System.out.println("It's Monday");
+                break;
+            case 2 :System.out.println("It's Tuesday");
+                break;
+            case 3 :System.out.println("It's Wednesday");
+                break;
+            case 4 :System.out.println("It's Thursday");
+                break;
+            case 5 :System.out.println("It's Friday");
+                break;
+            case 6 :System.out.println("It's Saturday");
+                break;
+        }
+    }
 }
